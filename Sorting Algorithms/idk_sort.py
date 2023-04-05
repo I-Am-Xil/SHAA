@@ -4,16 +4,7 @@ It's like a bubble sort trying to be selection sort
 for the meantime i'll called "idk sort" or "scuffed selection sort"
 """
 
-import random as rn
-
-def Random_number_list_generator(n):
-    rng_list = []
-    for i in range (n):
-        #* You can change this to other numbers
-        rng_list.append(rn.randint(0, 50))
-    print(rng_list)
-    return rng_list
-
+from utils import util
 
 def idk_sort(rng_list):
     #* i needed something i could edit without trashing the initial data
@@ -50,17 +41,12 @@ def idk_sort(rng_list):
 
 n = input("number of elements in the list: ")
 
-#* i hate this try catch btw
-try:
-    n = int(n)
-    typeof_n = True
-except ValueError:
-    typeof_n = False
+type_int_n, n = util.isint(n)
 
-if typeof_n is False:
+if type_int_n is False:
     #* :)
     print("Nice try dumbass")
     exit(1)
 
     
-idk_sort(Random_number_list_generator(n))
+idk_sort(util.RNG_list(n, 0, 50))
