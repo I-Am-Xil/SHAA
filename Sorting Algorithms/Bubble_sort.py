@@ -12,15 +12,15 @@ def Bubble_sort(rng_list):
         for j in range(list_length-1):
             
             steps += 1
-            print(f"Comparing: {temp_list[j]}, {temp_list[j+1]}")
+            #print(f"Comparing: {temp_list[j]}, {temp_list[j+1]}")
             
             if temp_list[j] > temp_list[j+1]:
                 temp_var = temp_list[j]
                 temp_list[j] = temp_list[j+1]
                 temp_list[j+1] = temp_var
                 
-                print(f"Flipping: {temp_list[j]}, {temp_list[j+1]}")
-                print(temp_list)
+                #print(f"Flipping: {temp_list[j]}, {temp_list[j+1]}")
+                #print(temp_list)
     
     print(f"Final list: {temp_list}")
     print(f"Steps: {steps}")

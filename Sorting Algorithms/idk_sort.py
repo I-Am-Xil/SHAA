@@ -22,7 +22,7 @@ def idk_sort(rng_list):
             var_1 = sorted_list[i]
             var_2 = sorted_list[j]
 
-            print(f"Comparing: {var_1}, {var_2}")
+            #print(f"Comparing: {var_1}, {var_2}")
             
             if var_1 > var_2:
                 var_3 = var_1
@@ -31,7 +31,8 @@ def idk_sort(rng_list):
                 
                 sorted_list[i] = var_1
                 sorted_list[j] = var_2
-                print(f"Flip: {var_1}, {var_2}")
+                
+                #print(f"Flip: {var_1}, {var_2}")
                 
     print(sorted_list)
     print(f"steps: {steps}")    
