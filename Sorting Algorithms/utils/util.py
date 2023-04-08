@@ -1,6 +1,6 @@
 import random as rn
 
-def RNG_list(n, initial ,final):
+def RNG_List(n, initial ,final):
     rng_list = []
     
     for i in range (n):
@@ -10,7 +10,7 @@ def RNG_list(n, initial ,final):
     return rng_list
 
 
-def isint(n):
+def IsInt(n):
     n_1 = 0
     
     try:

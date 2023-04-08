@@ -1,6 +1,7 @@
 from utils import util
 
-steps_counter = 0
+comparison_counter = 0
+writings = 0
 
 
 def Selection_sort(rng_list):
@@ -17,6 +18,9 @@ def Selection_sort(rng_list):
         temp_var = sorted_list[j]
         sorted_list[j] = sorted_list[min_val_position]
         sorted_list[min_val_position] = temp_var
+        
+        global writings
+        writings += 1
     
     print(f"Sorted list: {sorted_list}")
     
@@ -35,8 +39,8 @@ def min_value(rng_list, list_length, initial):
             min_val = rng_list[i]
             min_val_position = i
         
-        global steps_counter
-        steps_counter += 1
+        global comparison_counter
+        comparison_counter += 1
             
     #print(f"Min: {min_val} Position: {min_val_position}")
     return min_val_position
@@ -44,12 +48,13 @@ def min_value(rng_list, list_length, initial):
 
 n = input("number of elements in the list: ")
 
-type_int_n, n = util.isint(n)
+type_int_n, n = util.IsInt(n)
 
 if type_int_n is False:
     #* :)
     print("Nice try dumbass")
     exit(1)
     
-Selection_sort(util.RNG_list(n, 0, 50))
-print(f"Steps: {steps_counter}")
+Selection_sort(util.RNG_List(n, 0, 50))
+print(f"Number of comparisons: {comparison_counter}")
+print(f"Writings to array: {writings}")

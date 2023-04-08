@@ -9,40 +9,35 @@ from utils import util
 def idk_sort(rng_list):
     #* i needed something i could edit without trashing the initial data
     sorted_list = rng_list
-    var_1 = 0
-    var_2 = 0
     
-    steps = 0
+    comparisons = 0
+    writings = 0
         
     for i in range(len(sorted_list)):
         for j in range(i+1, len(sorted_list)):
             
-            steps += 1
-            
-            var_1 = sorted_list[i]
-            var_2 = sorted_list[j]
+            comparisons += 1
 
-            #print(f"Comparing: {var_1}, {var_2}")
+            #print(f"Comparing: {sorted_list[i]}, {sorted_list[j]}")
             
-            if var_1 > var_2:
-                var_3 = var_1
-                var_1 = var_2
-                var_2 = var_3
+            if sorted_list[i] > sorted_list[j]:
+                writings += 1
+                var_3 = sorted_list[i]
+                sorted_list[i] = sorted_list[j]
+                sorted_list[j] = var_3
                 
-                sorted_list[i] = var_1
-                sorted_list[j] = var_2
-                
-                #print(f"Flip: {var_1}, {var_2}")
+                #print(f"Flip: {sorted_list[i]}, {sorted_list[j]}")
                 
     print(sorted_list)
-    print(f"steps: {steps}")    
+    print(f"Comparisons: {comparisons}")
+    print(f"Writings: {writings}")
     return
 
 
 
 n = input("number of elements in the list: ")
 
-type_int_n, n = util.isint(n)
+type_int_n, n = util.IsInt(n)
 
 if type_int_n is False:
     #* :)
@@ -50,4 +45,4 @@ if type_int_n is False:
     exit(1)
 
     
-idk_sort(util.RNG_list(n, 0, 50))
+idk_sort(util.RNG_List(n, 0, 50))
