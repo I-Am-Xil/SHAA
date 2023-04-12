@@ -1,7 +1,14 @@
 from utils import util
 import random as rn
 
+steps = 0
+comparisons = 0
+
+
 def Quicksort(rng_list):
+    global steps
+    global comparisons
+    steps += 1
     
     rng_list_len = len(rng_list)
     left = []
@@ -28,23 +35,26 @@ def Quicksort(rng_list):
     #print(f"Right: {right}")
     
     
-    
+    comparisons += 1
     if  (len(left) < 2) and (len(right) < 2):
         sorted = left + right
         #print(f"Sorted: {sorted}")
         return sorted
     
+    comparisons += 1
     if left and right:
         if (ArithmeticMean(left) == left[0]) and (ArithmeticMean(right) == right[0]):
             sorted = left + right
             #print(f"Sorted: {sorted}")
             return sorted
     
+    comparisons += 1
     if not left:
         if ArithmeticMean(right) == right[0]:
             sorted = right
             return sorted
     
+    comparisons += 1
     if not right:
         if ArithmeticMean(left) == left[0]:
             sorted = left
@@ -83,4 +93,8 @@ if type_int_n is False:
     exit(1)
 
     
-print(f"Final list: {Quicksort(util.RNG_List(n, 0, 50))}")
+sorted_list = Quicksort(util.RNG_List(n, 0, 50))
+
+print(f"Final list: {sorted_list}")
+print(f"Steps: {steps}")
+print(f"Comparisons: {comparisons}")
