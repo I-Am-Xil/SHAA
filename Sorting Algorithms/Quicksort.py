@@ -25,6 +25,7 @@ def Quicksort(rng_list):
     #print(f"Pivot: {pivot}")
     
     for i in rng_list:
+        comparisons += 1
         if i <= pivot:
             left.append(i)
             continue
